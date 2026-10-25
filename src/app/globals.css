@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+/*
+ * AfterHours palette: warm off-white page, white surfaces, charcoal type and a
+ * vivid blue-violet accent used sparingly (actions, links, active states).
+ * Light is the default; dark follows the OS unless the user picks a theme
+ * (data-theme on <html>, set by the theme toggle).
+ */
+:root {
+  color-scheme: light;
+  --color-canvas: #f5f4f2;
+  --color-card: #ffffff;
+  --color-subtle: #efedea;
+  --color-surface: #e9e7e3;
+  --color-line: #e7e5e4;
+  --color-line-strong: #d6d3d1;
+  --color-ink: #171717;
+  --color-ink-soft: #3f3f3f;
+  --color-muted: #666666;
+  --color-faint: #8a8a8a;
+  --color-primary: #4d39e9;
+  --color-primary-hover: #3926cc;
+  --color-on-primary: #ffffff;
+  --color-accent: #4d39e9;
+  --color-accent-soft: #efedff;
+  --color-dark-section: #171717;
+  --color-success: #16803d;
+  --color-success-bg: #e3f4e8;
+  --color-warning: #8a5a00;
+  --color-warning-accent: #e3a23b;
+  --color-warning-bg: #fcf1dc;
+  --color-danger: #b3261e;
+  --color-danger-bg: #fbe8e5;
+  --color-info: #4d39e9;
+  --color-info-bg: #efedff;
+  --color-overlay: rgb(23 23 23 / 0.5);
+  --shadow-lift: 0 1px 2px rgb(23 23 23 / 0.04), 0 12px 32px -12px rgb(23 23 23 / 0.16);
+  /* Festival colours: marigold, rani pink, peacock and saffron. Used for highlights, icons and art. */
+  --fest-marigold: #ffb627;
+  --fest-pink: #e5197a;
+  --fest-peacock: #00897b;
+  --fest-saffron: #ff6b1a;
+  --fest-marigold-soft: #fff3d6;
+  --fest-pink-soft: #fde4f0;
+  --fest-peacock-soft: #d9f2ee;
+  --fest-saffron-soft: #ffe8db;
+  /* Text-safe versions for coloured words on light surfaces. */
+  --fest-marigold-text: #a86300;
+  --fest-pink-text: #c8136a;
+  --fest-peacock-text: #00796b;
+  --fest-saffron-text: #c94a00;
+  --accent-text: #4d39e9;
+}
+
+/* Dark palette: warm charcoal surfaces; the accent is lifted so links stay legible. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-canvas: #151413;
+    --color-card: #1e1d1c;
+    --color-subtle: #1a1918;
+    --color-surface: #292826;
+    --color-line: #2e2c2a;
+    --color-line-strong: #3d3b38;
+    --color-ink: #f3f2f0;
+    --color-ink-soft: #d6d4d1;
+    --color-muted: #a5a29e;
+    --color-faint: #7a7773;
+    --color-primary: #6a57f5;
+    --color-primary-hover: #7e6dff;
+    --color-on-primary: #ffffff;
+    --color-accent: #aea3ff;
+    --color-accent-soft: rgb(106 87 245 / 0.18);
+    --color-dark-section: #0c0c0b;
+    --color-success: #5fcf8a;
+    --color-success-bg: rgb(22 128 61 / 0.24);
+    --color-warning: #f0bf6a;
+    --color-warning-accent: #e3a23b;
+    --color-warning-bg: rgb(227 162 59 / 0.18);
+    --color-danger: #f1948c;
+    --color-danger-bg: rgb(179 38 30 / 0.24);
+    --color-info: #aea3ff;
+    --color-info-bg: rgb(106 87 245 / 0.18);
+    --color-overlay: rgb(0 0 0 / 0.6);
+    --shadow-lift: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -12px rgb(0 0 0 / 0.6);
+    --fest-marigold-soft: rgb(255 182 39 / 0.16);
+    --fest-pink-soft: rgb(229 25 122 / 0.2);
+    --fest-peacock-soft: rgb(0 137 123 / 0.24);
+    --fest-saffron-soft: rgb(255 107 26 / 0.18);
+    --fest-marigold-text: #ffc24d;
+    --fest-pink-text: #ff5fa8;
+    --fest-peacock-text: #4fd1bf;
+    --fest-saffron-text: #ff8a4c;
+    --accent-text: #aea3ff;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-canvas: #151413;
+  --color-card: #1e1d1c;
+  --color-subtle: #1a1918;
+  --color-surface: #292826;
+  --color-line: #2e2c2a;
+  --color-line-strong: #3d3b38;
+  --color-ink: #f3f2f0;
+  --color-ink-soft: #d6d4d1;
+  --color-muted: #a5a29e;
+  --color-faint: #7a7773;
+  --color-primary: #6a57f5;
+  --color-primary-hover: #7e6dff;
+  --color-on-primary: #ffffff;
+  --color-accent: #aea3ff;
+  --color-accent-soft: rgb(106 87 245 / 0.18);
+  --color-dark-section: #0c0c0b;
+  --color-success: #5fcf8a;
+  --color-success-bg: rgb(22 128 61 / 0.24);
+  --color-warning: #f0bf6a;
+  --color-warning-accent: #e3a23b;
+  --color-warning-bg: rgb(227 162 59 / 0.18);
+  --color-danger: #f1948c;
+  --color-danger-bg: rgb(179 38 30 / 0.24);
+  --color-info: #aea3ff;
+  --color-info-bg: rgb(106 87 245 / 0.18);
+  --color-overlay: rgb(0 0 0 / 0.6);
+  --shadow-lift: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -12px rgb(0 0 0 / 0.6);
+  --fest-marigold-soft: rgb(255 182 39 / 0.16);
+  --fest-pink-soft: rgb(229 25 122 / 0.2);
+  --fest-peacock-soft: rgb(0 137 123 / 0.24);
+  --fest-saffron-soft: rgb(255 107 26 / 0.18);
+  --fest-marigold-text: #ffc24d;
+  --fest-pink-text: #ff5fa8;
+  --fest-peacock-text: #4fd1bf;
+  --fest-saffron-text: #ff8a4c;
+  --accent-text: #aea3ff;
+}
+
+@theme inline {
+  --color-background: var(--color-canvas);
+  --color-foreground: var(--color-ink);
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-hand: var(--font-kalam), "Comic Sans MS", cursive;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* in-page anchors clear the sticky navbar */
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+  }
+
+  /* Headings wrap into even lines, paragraphs avoid one-word last lines, words never split. */
+  h1, h2, h3, h4 { text-wrap: balance; overflow-wrap: normal; hyphens: none; }
+  p, li, dd { text-wrap: pretty; hyphens: none; }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-accent-soft);
+    color: var(--color-ink);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .container-page { width: 100%; max-width: 76rem; margin-inline: auto; padding-inline: 1rem; }
+  @media (min-width: 640px) { .container-page { padding-inline: 1.5rem; } }
+  .card { background: var(--color-card); border: 1px solid var(--color-line); border-radius: 1rem; padding: 1.25rem; }
+  .label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--color-ink-soft); margin-bottom: 0.35rem; }
+  .input {
+    width: 100%; min-height: 2.75rem; background: var(--color-card); color: var(--color-ink);
+    border: 1px solid var(--color-line-strong); border-radius: 0.75rem; padding: 0.55rem 0.85rem; font-size: 0.925rem;
+  }
+  .input::placeholder { color: var(--color-faint); }
+  .input:focus { outline: 2px solid var(--color-primary); outline-offset: 1px; border-color: var(--color-primary); }
+  .input[aria-invalid="true"] { border-color: var(--color-danger); }
+
+  /* Buttons are pills; cards and images use larger, softer radii so the hierarchy reads. */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; min-height: 2.375rem;
+    border-radius: 999px; padding: 0.45rem 1.05rem; font-size: 0.875rem; font-weight: 500; letter-spacing: -0.005em;
+    border: 1px solid var(--color-line-strong); background: var(--color-card); color: var(--color-ink);
+    transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s; cursor: pointer; white-space: nowrap;
+  }
+  .btn:hover { border-color: var(--color-ink); }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-primary { background: var(--color-primary); color: var(--color-on-primary); border-color: var(--color-primary); }
+  .btn-primary:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
+  .btn-dark { background: var(--color-ink); color: var(--color-canvas); border-color: var(--color-ink); }
+  .btn-dark:hover { background: var(--color-ink-soft); border-color: var(--color-ink-soft); }
+  .btn-danger { background: var(--color-card); color: var(--color-danger); border-color: color-mix(in srgb, var(--color-danger) 40%, transparent); }
+  .btn-danger:hover { background: var(--color-danger-bg); border-color: var(--color-danger); }
+  .btn-ghost { background: transparent; border-color: transparent; color: var(--color-muted); }
+  .btn-ghost:hover { color: var(--color-ink); background: var(--color-subtle); border-color: transparent; }
+  .btn-sm { min-height: 2rem; padding: 0.3rem 0.75rem; font-size: 0.8rem; }
+  .btn-lg { min-height: 2.875rem; padding: 0.65rem 1.4rem; font-size: 0.925rem; }
+  .badge { display: inline-flex; align-items: center; gap: 0.25rem; border-radius: 999px; padding: 0.12rem 0.6rem; font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
+  .table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .table th { text-align: left; font-weight: 600; color: var(--color-muted); padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--color-line); white-space: nowrap; background: var(--color-subtle); }
+  .table td { padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--color-line); vertical-align: top; }
+  .link { color: var(--color-accent); font-weight: 600; }
+  .link:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .muted { color: var(--color-muted); }
+  .prose-text { white-space: pre-line; line-height: 1.7; color: var(--color-ink-soft); }
+
+  /* Brand */
+  .wordmark { font-family: var(--font-sans); font-weight: 700; letter-spacing: -0.045em; line-height: 1; }
+
+  /* Marketing type scale (fluid, ~1.25 ratio) */
+  .display { font-family: var(--font-display); font-weight: 400; font-size: clamp(3rem, 2rem + 4.6vw, 6rem); line-height: 0.95; letter-spacing: -0.025em; text-wrap: balance; }
+  .heading { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.25rem, 1.7rem + 2.2vw, 3.75rem); line-height: 1; letter-spacing: -0.02em; text-wrap: balance; }
+  /* Italic serif phrase in a festival colour: the page's colourful accent. */
+  .accent { font-style: italic; }
+  .lede { font-size: clamp(1rem, 0.96rem + 0.25vw, 1.125rem); line-height: 1.65; color: var(--color-muted); max-width: 36rem; font-weight: 400; margin-inline: auto; }
+  @media (min-width: 768px) { .lede { margin-inline: 0; } }
+  .text-center .lede, .text-center.lede { margin-inline: auto; }
+  .section { padding-block: clamp(3rem, 2rem + 4vw, 7rem); }
+
+  /* Image cards zoom gently on hover-capable devices only. */
+  .zoom-img { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  @media (hover: hover) {
+    .zoom-parent:hover .zoom-img { transform: scale(1.04); }
+    .lift { transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; }
+    .lift:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+  }
+
+  /* Colourful type */
+  .text-festival {
+    background: linear-gradient(100deg, var(--color-primary) 0%, var(--fest-pink) 45%, var(--fest-saffron) 75%, var(--fest-marigold) 100%);
+    background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+    /* Per-element CSS animation: animating a variable on <html> instead would restyle the whole page every frame. */
+    animation: festival-pan 5s ease-in-out infinite alternate;
+  }
+  /* Marker swipe behind a word; GSAP grows it from scaleX(0). */
+  .marker { position: relative; isolation: isolate; white-space: nowrap; }
+  .marker-swipe { position: absolute; inset: 62% -0.06em 0.06em; z-index: -1; border-radius: 0.15em; transform-origin: left center; }
+  .hand { font-family: var(--font-hand); font-weight: 700; }
+}
+
+/*
+ * GSAP owns all entrance/scroll motion (see components/motion). With JS and motion available
+ * (html.motion, set before paint), hero pieces start hidden; the fallback shows them anyway after 2.5s.
+ */
+@keyframes festival-pan {
+  from { background-position: 0% 0; }
+  to { background-position: 100% 0; }
+}
+
+@keyframes motion-fallback {
+  to { visibility: visible; }
+}
+/* Only decorative hero pieces wait for GSAP; the headline, copy and photos (LCP candidates) paint immediately. */
+html.motion [data-hero="badge"], html.motion [data-hero="ctas"], html.motion [data-hero="dot"], html.motion [data-hero="note"] { visibility: hidden; animation: motion-fallback 0s linear 2.5s forwards; }
+html.ann-dismissed [data-announcement] { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-hero] { visibility: visible !important; }
+}
+
+@media print {
+  header,
+  footer {
+    display: none !important;
+  }
+}
