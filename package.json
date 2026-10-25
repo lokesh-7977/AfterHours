@@ -2,25 +2,51 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.2.2",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "db:indexes": "tsx --conditions=react-server --env-file=.env scripts/create-indexes.ts",
+    "seed:admin": "tsx --conditions=react-server --env-file=.env scripts/seed-admin.ts",
+    "maintenance": "tsx --conditions=react-server --env-file=.env scripts/run-maintenance.ts",
+    "r2:cors": "tsx --conditions=react-server --env-file=.env scripts/configure-r2-cors.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1156.0",
+    "@aws-sdk/s3-request-presigner": "^3.1156.0",
+    "@gsap/react": "^2.1.2",
+    "@tanstack/react-table": "^9.3.1",
+    "@yudiel/react-qr-scanner": "^2.6.0",
+    "better-auth": "1.7.12",
+    "canvas-confetti": "^1.9.4",
+    "gsap": "^3.15.0",
+    "lottie-web": "^5.13.0",
+    "lucide-react": "^1.61.0",
+    "mongodb": "~7.7.0",
+    "mongoose": "9.11.4",
     "next": "16.4.3",
+    "qrcode": "^1.5.4",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
+    "uuid": "^14.0.3",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }
